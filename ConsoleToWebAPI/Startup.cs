@@ -14,7 +14,7 @@ namespace ConsoleToWebAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddControllers();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -22,15 +22,7 @@ namespace ConsoleToWebAPI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                   await context.Response.WriteAsync("Hello from web api app");
-                });
-
-                endpoints.MapGet("/test", async context =>
-                {
-                    await context.Response.WriteAsync("Hello from web api app test");
-                });
+                endpoints.MapControllers();
             });
         }
     }
