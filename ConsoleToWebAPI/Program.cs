@@ -19,12 +19,10 @@ namespace ConsoleToWebAPI
               
                   .ConfigureWebHostDefaults(webBHost =>
                     {
-                        webBHost.UseStartup<Startup>();
+                         webBHost.UseStartup<Startup>();
                   
                      });
-             
-       
-
+          
         }
     }
 
