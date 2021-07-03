@@ -14,13 +14,15 @@ namespace ConsoleToWebAPI.Controllers
         [Route("api/get-all")]
         [Route("getall")]
         [Route("get-all")]
+        [Route("[controller]/[action]")]
 
         public string GetAll()
         {
             return "Hello from GetAll()";
         }
 
-        [Route("api/get-all-authors")]
+        //[Route("api/get-all-authors")]
+        [Route("[controller]/[action]")]
         public string GetAllAuthors()
         {
             return "Hello from GetAllAuthors()";
