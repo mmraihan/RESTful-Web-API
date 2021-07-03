@@ -25,33 +25,33 @@ namespace ConsoleToWebAPI
             //    await context.Response.WriteAsync("Hello from Run method");
             //});
 
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hello from Use-1 1\n");
-                await next(); // Next Method
-                await context.Response.WriteAsync("Hello from Use-1 \n");
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello from Use-1 1\n");
+            //    await next(); // Next Method
+            //    await context.Response.WriteAsync("Hello from Use-1 \n");
                 
 
-            });
-            app.Map("/raihan", CustomCode);
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hello from Use-2 1\n");
-                await next(); // Next Method
-                await context.Response.WriteAsync("Hello from Use-2 2\n");
+            //});
+            //app.Map("/raihan", CustomCode);
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello from Use-2 1\n");
+            //    await next(); // Next Method
+            //    await context.Response.WriteAsync("Hello from Use-2 2\n");
 
-            });
+            //});
 
-            app.UseMiddleware<CustomMiddleware1>();
+            //app.UseMiddleware<CustomMiddleware1>();
 
             
 
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Request Complete \n");
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Request Complete \n");
                 
 
-            });
+            //});
 
             //app.Run(async context => {
             //    await context.Response.WriteAsync("Request Complete \n");
@@ -61,9 +61,9 @@ namespace ConsoleToWebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseRouting(); //Middleware
+            app.UseRouting(); //Enable Routing
 
-            app.UseEndpoints(endpoints =>  //Middleware
+            app.UseEndpoints(endpoints =>  //Map the resource Resource
             {
                 endpoints.MapControllers();
             });
