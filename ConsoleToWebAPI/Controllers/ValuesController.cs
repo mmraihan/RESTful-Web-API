@@ -22,5 +22,17 @@ namespace ConsoleToWebAPI.Controllers
         {
             return "Hello from GetAllAuthors()";
         }
+
+        [Route("books/{id}")]
+        public string GetById(int id)
+        {
+            return "Hello " + id;
+        }
+
+        [Route("books/{id}/author/{authorId}")]
+        public string GetAuthorAddressById(int id, int authorId)
+        {
+            return "Hello " + id +" "+ authorId ;
+        }
     }
 }
