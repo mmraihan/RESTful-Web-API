@@ -12,6 +12,9 @@ namespace ConsoleToWebAPI.Controllers
     public class ValuesController : ControllerBase
     {
         [Route("api/get-all")]
+        [Route("getall")]
+        [Route("get-all")]
+
         public string GetAll()
         {
             return "Hello from GetAll()";
