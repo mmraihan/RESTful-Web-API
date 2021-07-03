@@ -38,10 +38,16 @@ namespace ConsoleToWebAPI
                 await context.Response.WriteAsync("Hello from Use-2 2\n");
 
             });
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Request Complete \n");
+                
 
-            app.Run(async context => {
-                await context.Response.WriteAsync("Hello from Run \n");
             });
+
+            //app.Run(async context => {
+            //    await context.Response.WriteAsync("Request Complete \n");
+            //});
 
             if (env.IsDevelopment())
             {
