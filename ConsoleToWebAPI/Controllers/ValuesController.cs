@@ -9,12 +9,13 @@ namespace ConsoleToWebAPI.Controllers
 {
 
     [ApiController]
+    [Route("[controller]/[action]")]
     public class ValuesController : ControllerBase
     {
-        [Route("api/get-all")]
-        [Route("getall")]
-        [Route("get-all")]
-        [Route("[controller]/[action]")]
+        //[Route("api/get-all")]
+        //[Route("getall")]
+        //[Route("get-all")]
+        
 
         public string GetAll()
         {
@@ -22,25 +23,25 @@ namespace ConsoleToWebAPI.Controllers
         }
 
         //[Route("api/get-all-authors")]
-        [Route("[controller]/[action]")]
+        //[Route("[controller]/[action]")]
         public string GetAllAuthors()
         {
             return "Hello from GetAllAuthors()";
         }
 
-        [Route("books/{id}")]
+        //[Route("books/{id}")]
         public string GetById(int id)
         {
             return "Hello " + id;
         }
 
-        [Route("books/{id}/author/{authorId}")]
+        //[Route("books/{id}/author/{authorId}")]
         public string GetAuthorAddressById(int id, int authorId)
         {
             return "Hello " + id +" "+ authorId ;
         }
 
-        [Route("search")]
+        //[Route("search")]
         public string SearchBooks(int id, int authorId, string name, int rating)
         {
             return "search";
