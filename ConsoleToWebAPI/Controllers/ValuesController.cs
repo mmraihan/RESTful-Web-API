@@ -12,10 +12,10 @@ namespace ConsoleToWebAPI.Controllers
     [Route("[controller]/[action]")]
     public class ValuesController : ControllerBase
     {
-        //[Route("api/get-all")]
-        //[Route("getall")]
-        //[Route("get-all")]
-        
+        [Route("~/api/get-all")]
+        [Route("~/getall")]
+        [Route("~/get-all")]
+
 
         public string GetAll()
         {
