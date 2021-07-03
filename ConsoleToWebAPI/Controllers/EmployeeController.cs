@@ -26,8 +26,8 @@ namespace ConsoleToWebAPI.Controllers
         //        Name = "Raihan"
         //    };
         //}
-
-        public IEnumerable <EmployeeModel> GetEmployee()
+        [Route("")]
+        public List<EmployeeModel> GetEmployee()
         {
 
             return new List<EmployeeModel>()
@@ -37,11 +37,22 @@ namespace ConsoleToWebAPI.Controllers
 
             };
         }
- 
-        
-       
+        [Route("{id}")]
+        public IActionResult GetEmployees(int id)
+        {
+            if (id==0)
+            {
+                return NotFound("");
+            }
 
+            return Ok(new List<EmployeeModel>()
+            {
+                new EmployeeModel(){Id=1, Name="Employee1"},
+                new EmployeeModel(){Id=2, Name="Employee2"}
 
+            }
+            );
+        }
 
     }
 }
