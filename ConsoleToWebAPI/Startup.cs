@@ -16,6 +16,7 @@ namespace ConsoleToWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<CustomMiddleware1>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -40,6 +41,8 @@ namespace ConsoleToWebAPI
                 await context.Response.WriteAsync("Hello from Use-2 2\n");
 
             });
+
+            app.UseMiddleware<CustomMiddleware1>();
 
             
 
