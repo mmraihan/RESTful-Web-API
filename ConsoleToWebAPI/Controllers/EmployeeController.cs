@@ -27,7 +27,7 @@ namespace ConsoleToWebAPI.Controllers
         //    };
         //}
 
-        public List<EmployeeModel> GetEmployee()
+        public IEnumerable <EmployeeModel> GetEmployee()
         {
 
             return new List<EmployeeModel>()
