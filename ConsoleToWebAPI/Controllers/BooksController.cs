@@ -24,5 +24,13 @@ namespace ConsoleToWebAPI.Controllers
         {
             return "Hello String " + id;
         }
+
+        [Route("{id:regex(a(b|c))}")] 
+        public string GetByRegex(string id)
+        {
+            return "Hello Regex " + id;
+        }
+
+
     }
 }
