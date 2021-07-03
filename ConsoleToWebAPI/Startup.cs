@@ -19,13 +19,22 @@ namespace ConsoleToWebAPI
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //app.Run(async context =>
+            //{
+            //    await context.Response.WriteAsync("Hello from Run method");
+            //});
+
+            app.Run(async context => {
+                await context.Response.WriteAsync("Hello from Run 2");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseRouting();
+            app.UseRouting(); //Middleware
 
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints =>  //Middleware
             {
                 endpoints.MapControllers();
             });
