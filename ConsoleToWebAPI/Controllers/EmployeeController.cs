@@ -17,14 +17,31 @@ namespace ConsoleToWebAPI.Controllers
         //    return "GetEmployeee works";
         //}
 
-        public EmployeeModel GetEmployees() // Return Non-primitive types
+
+        //public EmployeeModel GetEmployees() // Return Non-primitive types
+        //{
+        //    return new EmployeeModel()
+        //    {
+        //        Id = 1,
+        //        Name = "Raihan"
+        //    };
+        //}
+
+        public List<EmployeeModel> GetEmployee()
         {
-            return new EmployeeModel()
+
+            return new List<EmployeeModel>()
             {
-                Id = 1,
-                Name = "Raihan"
+                new EmployeeModel(){Id=1, Name="Employee1"},
+                new EmployeeModel(){Id=1, Name="Employee2"},
+
             };
         }
+ 
+        
+       
+
+
 
     }
 }
