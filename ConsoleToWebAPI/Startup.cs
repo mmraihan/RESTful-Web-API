@@ -28,9 +28,11 @@ namespace ConsoleToWebAPI
             {
                 await context.Response.WriteAsync("Hello from Use-1 1\n");
                 await next(); // Next Method
-                await context.Response.WriteAsync("Hello from Use-1 2\n");
+                await context.Response.WriteAsync("Hello from Use-1 \n");
+                
 
             });
+            app.Map("/raihan", CustomCode);
             app.Use(async (context, next) =>
             {
                 await context.Response.WriteAsync("Hello from Use-2 1\n");
@@ -38,6 +40,9 @@ namespace ConsoleToWebAPI
                 await context.Response.WriteAsync("Hello from Use-2 2\n");
 
             });
+
+            
+
             app.Use(async (context, next) =>
             {
                 await context.Response.WriteAsync("Request Complete \n");
@@ -58,6 +63,15 @@ namespace ConsoleToWebAPI
             app.UseEndpoints(endpoints =>  //Middleware
             {
                 endpoints.MapControllers();
+            });
+        }
+
+        private void CustomCode(IApplicationBuilder app)
+        {
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hello from Raihan \n");
+              
             });
         }
     }
