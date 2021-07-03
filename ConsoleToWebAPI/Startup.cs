@@ -24,8 +24,23 @@ namespace ConsoleToWebAPI
             //    await context.Response.WriteAsync("Hello from Run method");
             //});
 
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hello from Use-1 1\n");
+                await next(); // Next Method
+                await context.Response.WriteAsync("Hello from Use-1 2\n");
+
+            });
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hello from Use-2 1\n");
+                await next(); // Next Method
+                await context.Response.WriteAsync("Hello from Use-2 2\n");
+
+            });
+
             app.Run(async context => {
-                await context.Response.WriteAsync("Hello from Run 2");
+                await context.Response.WriteAsync("Hello from Run \n");
             });
 
             if (env.IsDevelopment())
