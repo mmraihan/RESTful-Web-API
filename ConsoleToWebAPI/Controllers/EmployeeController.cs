@@ -54,5 +54,18 @@ namespace ConsoleToWebAPI.Controllers
             );
         }
 
+        [Route("{id}/basic")]
+        public ActionResult<EmployeeModel> GetEmployeeBasicDetails(int id) // ActionResult for specific type
+        {
+            if (id == 0)
+            {
+                return NotFound("");
+            }
+
+            return new EmployeeModel() { Id = 1, Name = "Employee1" };
+
+            
+        }
+
     }
 }
