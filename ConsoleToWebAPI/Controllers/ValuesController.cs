@@ -34,5 +34,11 @@ namespace ConsoleToWebAPI.Controllers
         {
             return "Hello " + id +" "+ authorId ;
         }
+
+        [Route("search")]
+        public string SearchBooks(int id, int authorId, string name, int rating)
+        {
+            return "search";
+        }
     }
 }
