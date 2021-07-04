@@ -16,17 +16,17 @@ namespace ConsoleToWebAPI.Controllers
         private List<AnimalModel> animals = null;
         public AnimalsController()
         {
-           animals = new List<AnimalModel>()
+            animals = new List<AnimalModel>()
             {
                 new AnimalModel(){ Id=1, Name="Cat" },
                 new AnimalModel(){ Id=2, Name="Dog" }
             };
         }
-       
 
 
 
-        [Route("", Name ="All")]
+
+        [Route("", Name = "All")]
         public IActionResult GetAnimals()
         {
             return Ok(animals);
@@ -45,9 +45,30 @@ namespace ConsoleToWebAPI.Controllers
             {
                 return BadRequest();
             }
-       
+
             return Ok(animals);
         }
+
+        [Route("{id:int}")]
+        public IActionResult GetAnimalsById(int id)
+        {
+            if (id==0)
+            {
+                return BadRequest();
+            }
+
+            return Ok(animals.FirstOrDefault(x => x.Id == id));
+        }
+
+
+        [HttpPost("")]
+        public IActionResult GetaAnimals( AnimalModel animal)
+        {
+            animals.Add(animal);
+            return Created("~/api/animals/" +animal.Id, animal);
+        }
+
+
 
     }
 }
