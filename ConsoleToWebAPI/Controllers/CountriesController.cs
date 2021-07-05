@@ -15,8 +15,8 @@ namespace ConsoleToWebAPI.Controllers
     {
         //public CountryModel Country { get; set; }
 
-        [HttpPost("")]
-        public IActionResult AddCountry([FromBody] CountryModel model) 
+        [HttpPost("{ID}")]
+        public IActionResult AddCountry([FromRoute] int id, [FromForm] CountryModel model) 
         {
             return Ok($"Name={model.Name}");
 
