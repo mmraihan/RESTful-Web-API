@@ -21,5 +21,12 @@ namespace ConsoleToWebAPI.Controllers
             return Ok($"Name={developer}");
 
         }
+
+        [HttpGet("search")]
+
+        public IActionResult SearchCountries([ModelBinder(typeof(CustomBinder))] string [] countries)
+        {
+            return Ok(countries);
+        }
     }
 }
