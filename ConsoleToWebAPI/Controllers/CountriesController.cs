@@ -10,20 +10,21 @@ namespace ConsoleToWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [BindProperties]
     public class CountriesController : ControllerBase
     {
 
-        [BindProperty(SupportsGet =true)] // Get
-        public CountryModel Country { get; set; }
+        public string Name { get; set; }
+        public int Population { get; set; }
+        public int Area { get; set; }
 
-       // [HttpPost("")]
+        [HttpPost("")]
 
-        [HttpGet("")]
         public IActionResult AddCountry()
         {
-            return Ok($"Name={this.Country.Name}," +
-                $" Population={this.Country.Population}," +
-                $" Area={this.Country.Area}");
+            return Ok($"Name={this.Name}," +
+                $" Population={this.Population}," +
+                $" Area={this.Area}");
         }
     }
 }
