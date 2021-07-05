@@ -14,17 +14,16 @@ namespace ConsoleToWebAPI.Controllers
     public class CountriesController : ControllerBase
     {
 
-        public string Name { get; set; }
-        public int Population { get; set; }
-        public int Area { get; set; }
+        
+        public CountryModel Country { get; set; }
 
         [HttpPost("")]
 
         public IActionResult AddCountry()
         {
-            return Ok($"Name={this.Name}," +
-                $" Population={this.Population}," +
-                $" Area={this.Area}");
+            return Ok($"Name={this.Country.Name}," +
+                $" Population={this.Country.Population}," +
+                $" Area={this.Country.Area}");
         }
     }
 }
