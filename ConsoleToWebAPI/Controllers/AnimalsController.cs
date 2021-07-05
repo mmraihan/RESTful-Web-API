@@ -58,8 +58,14 @@ namespace ConsoleToWebAPI.Controllers
             {
                 return BadRequest();
             }
+            var animal = animals.FirstOrDefault(x => x.Id == id);
 
-            return Ok(animals.FirstOrDefault(x => x.Id == id));
+            if (animal==null)
+            {
+                return NotFound();
+            }
+
+            return Ok(animals);
         }
 
 
