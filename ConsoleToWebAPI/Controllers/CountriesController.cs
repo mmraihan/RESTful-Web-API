@@ -13,10 +13,12 @@ namespace ConsoleToWebAPI.Controllers
     public class CountriesController : ControllerBase
     {
 
-        [BindProperty]
+        [BindProperty(SupportsGet =true)] // Get
         public CountryModel Country { get; set; }
 
-        [HttpPost("")]
+       // [HttpPost("")]
+
+        [HttpGet("")]
         public IActionResult AddCountry()
         {
             return Ok($"Name={this.Country.Name}," +
