@@ -35,7 +35,9 @@ namespace ConsoleToWebAPI.Controllers
         [Route("test")]
         public IActionResult GetAnimalsTest()
         {
-            return AcceptedAtRoute("All");
+           /* return LocalRedirect("~/api/animals")*/;  //Loacl direct 302
+            return LocalRedirectPermanent("~/api/animals");  //Loacl direct Permanent 301
+
         }
 
         [Route("{name}")]
