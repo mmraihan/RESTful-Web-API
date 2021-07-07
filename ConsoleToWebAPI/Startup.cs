@@ -18,7 +18,10 @@ namespace ConsoleToWebAPI
         {
             services.AddControllers();
             services.AddTransient<CustomMiddleware1>();
-            services.AddSingleton<IProductRepository, ProductRepository>();
+            //services.AddSingleton<IProductRepository, ProductRepository>();
+            //services.AddScoped<IProductRepository, ProductRepository>();  //AddScoped<>
+            services.AddTransient<IProductRepository, ProductRepository>();  //AddTransient<>
+
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
