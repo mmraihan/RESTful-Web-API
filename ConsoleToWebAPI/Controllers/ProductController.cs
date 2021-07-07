@@ -13,11 +13,11 @@ namespace ConsoleToWebAPI.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ProductRepository _productRepositoy; // connecton between repository and controller
+        private readonly IProductRepository _productRepositoy; // connecton between repository and controller
 
-        public ProductController()
+        public ProductController(IProductRepository productRepository)
         {
-            _productRepositoy = new ProductRepository();
+            _productRepositoy = productRepository;
 
         }
 

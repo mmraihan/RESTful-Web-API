@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleToWebAPI.Repository
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private List<ProductModel> products = new List<ProductModel>();
         public int AddProduct(ProductModel product)
