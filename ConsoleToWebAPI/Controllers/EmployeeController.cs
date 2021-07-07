@@ -1,4 +1,5 @@
 ﻿using ConsoleToWebAPI.Model;
+using ConsoleToWebAPI.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -66,6 +67,17 @@ namespace ConsoleToWebAPI.Controllers
 
             
         }
+
+
+        [HttpGet("name")]
+
+        public IActionResult GetName([FromServices] IProductRepository _productRepositoy)
+        {
+            var name = _productRepositoy.GetName();
+            return Ok(name);
+        }
+
+
 
     }
 }
