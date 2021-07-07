@@ -31,5 +31,14 @@ namespace ConsoleToWebAPI.Controllers
             return Ok(products);
         }
 
+        [HttpGet("")]
+
+        public IActionResult GetName()
+        {
+
+            var name = _productRepositoy.GetName();
+            return Ok(name);
+        }
+
     }
 }
